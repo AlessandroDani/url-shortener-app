@@ -2,15 +2,25 @@ const openModal = document.getElementById('btn-open-modal');
 const copyLink = document.getElementById('btn-copy-modal');
 const modal = document.getElementById('modal');
 const closeModal = document.getElementById('btn-close-modal');
+let url;
 
 openModal.addEventListener("click" , ()=>{
-    modal.style.display = "flex";
-    modal.showModal();
+    postUrl().then(
+        resultado =>{
+            url = resultado;
+            //console.log(url);
+            const modalLink = modal.querySelector('#modal__link');
+            modalLink.href = url;
+            modalLink.textContent = url;
+            modal.style.display = "flex";
+            modal.showModal();
+        }
+    );
+    
 });
 
 copyLink.addEventListener("click" , ()=>{
-    let link = modal.querySelector('#modal__link').innerText;
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText(url);
     copyLink.classList.add('copied');
     copyLink.innerHTML = `
         Link copied
