@@ -14,12 +14,28 @@
         <div class="input">
             <div class="input__button__form">
                 <form class="input__group">
-                        <input id="input" class="input__submit""url" placeholder="https://example.com">
-                    <button id="button" class="input__button">Get Short URL</button>
+                        <input id="input" class="input__submit" placeholder="https://example.com">
+                    <button type="button" id="btn-open-modal" class="input__button">Get Short URL</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <dialog id="modal">
+        <div id="modal_content">
+            <button id="btn-close-modal">x</button>
+        </div>
+        <h2 id="modal__title">This is your new URL!</h2>
+        <p>
+            <a id="modal__link" href="#">https://url-shortener/123</a>
+        </p>
+        <button type="button" id="btn-copy-modal">
+            Copy link
+            <a>
+                <img id="btn-copy-modal-img" src="img/copy.svg"> 
+            </a> 
+        </button>
+    </dialog>
 </body>
 <footer class="footer">
     <nav class="footer__nav">
@@ -32,5 +48,7 @@
     </nav>    
     Copyright © 2024 Andres Parra & Alessandro Daniele. All rights reserved.
 </footer>
-<script src="app.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/modal.js"></script>
 </html>

@@ -106,6 +106,84 @@ body{
     height: 50px;
 }
 
+/*Modal*/
+
+#modal::backdrop{
+    background-color: rgba(0, 0, 0, 0.333);
+}
+
+#btn-close-modal{
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+}
+
+#modal_content{
+    display: flex;
+    justify-content: end;
+    width: 90%;
+}
+
+#modal{
+    display: none;
+    border: none;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 150px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+#modal__title{
+    font-size: 28px;
+    padding-bottom: 10px;
+}
+
+#modal__link{
+    color: blue;
+}
+
+#btn-copy-modal{
+    border: none;
+    font-weight: bold;
+    background-color: rgb(96 165 250);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    min-width: 110px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+#btn-copy-modal.copied{
+    background-color: rgb(64, 174, 66);
+}
+
+#btn-copy-modal.copied:hover{
+    background-color: rgb(101, 255, 104);
+}
+
+#btn-copy-modal-img{
+    display: flex;
+    width: 1rem;
+    height: 1rem;
+}
+
+#btn-copy-modal:hover{
+    background-color: rgb(132, 185, 249);
+}
+
 @media (width < 650px) {
     .input__group{
         flex-direction: column;
