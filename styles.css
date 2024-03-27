@@ -6,12 +6,14 @@
     
 }
 
+/*BODY*/
 body{
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     overflow: hidden;
 }
 
+/*HEADER*/
 .header{
     min-height: 87vh;
 }
@@ -30,6 +32,8 @@ body{
     font-size: 1.25rem;
 }
 
+
+/*INPUT*/
 .input{
     min-height: 50vh;
     display: flex;
@@ -89,6 +93,7 @@ body{
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.333);
   }
 
+/*FOOTER*/
 .footer{
     display: flex;
     flex-direction: column;
@@ -106,7 +111,7 @@ body{
     height: 50px;
 }
 
-/*Modal*/
+/*MODAL*/
 
 #modal::backdrop{
     background-color: rgba(0, 0, 0, 0.333);
@@ -150,6 +155,7 @@ body{
     color: blue;
 }
 
+/*BUTTON MODAL*/
 #btn-copy-modal{
     border: none;
     font-weight: bold;
@@ -184,6 +190,7 @@ body{
     background-color: rgb(132, 185, 249);
 }
 
+/*MEDIA QUERYS*/
 @media (width < 650px) {
     .input__group{
         flex-direction: column;

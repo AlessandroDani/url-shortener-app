@@ -1,33 +1,43 @@
 const input = document.getElementById('input');
 
+/**
+ * Function that posts user URL to API
+ * @returns Object url
+ */
 async function postUrl(){
-    const id = randomId();
+    /**
+     * Cors-anywhere is NodeJS proxy which adds CORS headers to the proxied request. 
+     * It's temporally, it's use for problems with CORS policy
+     * link for more information https://github.com/Rob--W/cors-anywhere
+     */
     const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-    const yourUrl =
-        'https://urlshortenerapi.vercel.app/shortener/api/v1/shortener/';
 
-    fetch(corsAnywhere + yourUrl, {
+    const yourUrl = 'https://urlshortenerapi.vercel.app/shortener/api/v1/shortener/';
+    
+    /**
+     * My url and the corsanywhere url needs to be together for the request
+     */
+    return fetch(corsAnywhere + yourUrl, {
         method: 'POST',
         headers: new Headers({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
         }), 
         body: JSON.stringify({
-            "id": id,
-            "url": input.value
+            "url": input.value,
         })
     })
         .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err));
-        return 'https://urlshortenerapi/' + id;
+        .then((data) => data)
+        .catch((err) => null);
   }
 
+  /**
+   * Function that retrieves all the URLs from the API.
+   */
 async function getUrl() {
     const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-
-    const yourUrl =
-        'https://urlshortenerapi.vercel.app/shortener/api/v1/shortener/';
+    const yourUrl = 'https://urlshortenerapi.vercel.app/shortener/api/v1/shortener/';
 
     fetch(corsAnywhere + yourUrl, {
         method: 'GET',
@@ -39,20 +49,4 @@ async function getUrl() {
         .then((response) => response.json())
         .then((data) => console.log(data))
         .catch((err) => console.log(err));
-  }
-
-  function randomId(){
-    let id = '';
-    const list = [
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-    ];
-
-    for(let i=0; i < 6; i++){
-        id += list[Math.floor(Math.random() * (61 - 0) + 0)];
-    }
-    return id
   }
